@@ -1,0 +1,11 @@
+# 测试与调试残留
+_taskprobe.xml
+nci-*.ps1
+*.log
+state.json
+manifest.json
+*.reg
+
+# 系统
+Thumbs.db
+desktop.ini
