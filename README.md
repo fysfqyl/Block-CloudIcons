@@ -236,25 +236,3 @@ powershell -ExecutionPolicy Bypass -File .\Block-CloudIcons.ps1 -Action Protect
 
 ---
 
-## 发布到 GitHub（可选）
-
-项目自带 `Publish-ToGitHub.ps1`，用 GitHub REST API 建仓库并逐文件上传，**不需要安装 git 或 gh**。
-
-1. 生成 Token：打开 <https://github.com/settings/tokens/new>，Note 随便填，勾选 `repo` 整块，生成后复制 `ghp_` 开头那串。
-2. 先看会传什么（不联网、不改动任何东西）：
-
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\Publish-ToGitHub.ps1 -DryRun
-   ```
-
-3. 正式上传（会提示粘贴 Token，输入内容不显示）：
-
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\Publish-ToGitHub.ps1
-   ```
-
-   常用参数：`-RepoName 别的名字`、`-Private`（私有仓库）、`-Force`（仓库已存在时往里覆盖文件）。
-
-上传内容：`Block-CloudIcons.ps1`、`Block-CloudIcons.cmd`、`README.md`、`.gitignore`、`tests\*.ps1`。
-Token 只在内存里用，不会写进文件、也不会打印出来；用完可以在 GitHub 设置里 revoke。
-
